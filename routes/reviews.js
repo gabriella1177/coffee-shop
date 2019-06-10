@@ -6,8 +6,8 @@ router.get('/', (req, res, next) => {
     res.send('INDEX /posts/:id/reviews');
   });
 
-/* posts reviews create /posts/:id/reviews */
-router.posts('/', (req, res, next) => {
+/* reviews create /posts/:id/reviews */
+router.post('/', (req, res, next) => {
     res.send('CREATE /reviews');
   });
 
