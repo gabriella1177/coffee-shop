@@ -8,6 +8,7 @@ const passport = require('passport');
 const User = require('./models/user');
 const session = require('express-session');
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
 
 
 // require routes
@@ -36,12 +37,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'))
 
 // configure Passport and Sessions
 app.use(session({
   secret: 'cold brew please',
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: true
 }));
 
 app.use(passport.initialize());
@@ -58,7 +60,9 @@ app.use('/post/:id/reviews', reviewsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+  const err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 });
 
 // error handler
