@@ -34,4 +34,4 @@ router.put('/:id', upload.array('images', 4), asyncErrorHandler(postUpdate));
 /* DELETE posts destroy /posts/:id */
 router.delete('/:id', asyncErrorHandler(postDestroy));
   
-  module.exports = router;
+module.exports = router;
