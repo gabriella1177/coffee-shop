@@ -59,6 +59,20 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// set local variables middleware
+app.use(function(req, res, next) {
+  // set default page title
+  res.locals.title = 'Coffee Shop';
+  // set success flash message
+  res.locals.success = req.session.success || '';
+  delete req.session.success;
+  //set error flash message
+  res.locals.error = req.session.error || '';
+  delete req.session.error;
+  // continue on to next function in middleware chain
+  next();
+});
+
 // mount routes
 app.use('/', indexRouter);
 app.use('/posts', postsRouter);
