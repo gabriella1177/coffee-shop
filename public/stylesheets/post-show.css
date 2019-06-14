@@ -1,13 +1,19 @@
 body {
     margin: 0;
-    padding: 0;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   }
 
-  #map {
+a {
+    color: #00B7FF;
+}
+
+#map {
     width: 350px;
     height: 200px;
-  }
-  .marker {
+}
+  
+.marker {
     background-image: url('/images/mapbox-icon.png');
     background-size: cover;
     width: 50px;
@@ -22,3 +28,4 @@ body {
     text-align: center;
     font-family: 'Open Sans', sans-serif;
 }
+  
