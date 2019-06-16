@@ -21,7 +21,7 @@ const reviewsRouter = require('./routes/reviews');
 const app = express();
 
 //connect to the database
-mongoose.connect('mongodb://localhost:27017/coffee-shop-mapbox', { useNewUrlParser: true });
+mongoose.connect('mongodb+srv://coffeedrinker:thisisaSTRONGpassw0rd@cluster0-hcsqs.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
